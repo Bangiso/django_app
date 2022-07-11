@@ -1,0 +1,21 @@
+{% extends "base.html"%}
+{% block content %}
+<div class="row">
+    <div class="col-md-4 formDiv">
+      <form method="POST"> {% csrf_token %}
+          {{form}}
+
+          <div>
+             <label>&nbsp;</label>
+             <input type="submit" value="Submit" class="submit" />
+          </div>
+        </fieldset>
+      </form>
+    </div>
+</div>
+{%if form.errors %}
+<div>
+   {{form.errors.gpa.as_text}}
+</div>
+{% endif %}
+{% endblock %}

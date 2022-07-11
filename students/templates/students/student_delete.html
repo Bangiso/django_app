@@ -1,0 +1,14 @@
+{% extends "base.html"%}
+{% block content %}
+
+<div>
+    <form method="post"> {% csrf_token %}
+    <p> You about to delete  a student, please click confirm to continue.....</p>
+        <div>
+            <label>&nbsp;</label>
+            <input type="submit" value="Confirm" class="submit" />
+        </div>
+    </form>
+</div>
+
+{% endblock %}

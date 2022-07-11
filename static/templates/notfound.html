@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h4> No results found</h4>
+<div class="dispace">
+    <div >
+        <a href="{% url 'index'%}" > Home</a>
+    </div>
+    <div >
+        <a href="{% url 'students.getAll'%}">Student list</a>
+    </div>
+</div>
+{% endblock%}

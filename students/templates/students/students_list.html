@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Welcome to students list</h1>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>List of enrolled students</a>.</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Gpa</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>
+                    {{student.id }}
+                </td>
+                <td>
+                    {{ student.name}}
+                </td>
+                <td>
+                    {{student.gpa}}
+                </td>
+                <td>
+                    <a href="{% url 'students.detail' pk=student.id%}">Details</a> or 
+                    <a href="{% url 'students.update' pk=student.id%}">Update</a> or
+                    <a href="{% url 'students.delete' pk=student.id%}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

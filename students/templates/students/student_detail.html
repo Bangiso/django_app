@@ -1,0 +1,80 @@
+{% extends "base.html"%}
+{% block content %}
+
+<h1>Student details</h1>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Student details</a>.</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Gpa</th>
+                <th>Registration Date</th>
+                <th>Pass or Fail</th>
+                <th>Symbol</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    {{student.id }}
+                </td>
+                <td>
+                    {{ student.name}}
+                </td>
+                <td>
+                    {{student.gpa}}
+                </td>
+                <td>
+                    {{student.registered_date}}
+                </td>
+                {% if student.gpa >= 49 %}
+                    <td>
+                        PASS
+                    </td>
+
+                {% else %}
+                <td>
+                    FAIL
+                </td>
+                {% endif %}
+
+                {% if student.gpa >= 80 %}
+                    <td>A</td>
+                {% elif student.gpa < 80 and student.gpa >= 70%}
+                
+                    <td>B</td>
+            
+                {% elif student.gpa < 70 and student.gpa >= 60%}
+                        <td>C</td>
+            
+                {% elif student.gpa < 60 and student.gpa >= 50%}
+                  <td>D</td>
+                
+                {% elif student.gpa < 50 and student.gpa >= 40 %}
+    
+                  <td>E</td>
+                
+                {% elif student.gpa < 40 and student.gpa >= 30 %}
+                    <td>F</td>
+                {% else %}
+                   <td>FF</td>
+             {% endif %}
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="dispace">
+    <div >
+        <a href="{% url 'students.getAll'%}" > Back to student list</a>
+    </div>
+    <div >
+        <a href="{% url 'students.delete' pk=student.id%}">Delete</a>
+        | <a href="{% url 'students.update' pk=student.id%}">update</a>
+    </div>
+</div>
+
+{% endblock%}
